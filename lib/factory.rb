@@ -45,11 +45,7 @@ class Factory
         end
 
         define_method :dig do |*args|
-          args.reduce(to_h) do |hash, argument|
-            return nil if hash[argument].nil?
-
-            hash[arg]
-          end
+          args.inject(self) { |values, args| values[args] if values }
         end
 
         define_method :to_h do
