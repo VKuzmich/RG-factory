@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rubocop'
+
 # * Here you must define your `Factory` class.
 # * Each instance of Factory could be stored into variable. The name of this variable is the name of created Class
 # * Arguments of creatable Factory instance are fields/attributes of created class

@@ -16,7 +16,7 @@ Metrics/ParameterLists:
   Max: 10
 
 RSpec/ExampleLength:
-  Max: 25
+  Max: 15
 
 Metrics/AbcSize:
   Max: 70
