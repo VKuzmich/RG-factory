@@ -50,10 +50,6 @@ class Factory
           args.inject(self) { |values, args| values[args] if values }
         end
 
-        define_method :to_h do
-          args.zip(values).to_h
-        end
-
         define_method :length do
           args.size
         end
@@ -91,6 +87,12 @@ class Factory
         alias_method :==, :eql?
 
         class_eval(&block) if block_given?
+
+        private
+
+        define_method :to_h do
+          args.zip(values).to_h
+        end
       end
     end
   end
