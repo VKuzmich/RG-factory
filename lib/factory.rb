@@ -43,7 +43,7 @@ class Factory
         end
 
         define_method :each_pair do |&pair|
-          to_h.each_pair(&pair)
+          to_h.each(&pair)
         end
 
         define_method :dig do |*args|
@@ -75,9 +75,7 @@ class Factory
         end
 
         define_method(:values_at) do |*index|
-          instance_variables.values_at(*index).map do |values|
-            instance_variable_get values
-          end
+          values.select { |value| index.include?(values.index(value)) }
         end
 
         define_method :[] do |argument|
@@ -85,7 +83,7 @@ class Factory
         end
 
         define_method :[]= do |argument, value|
-          instance_variable_set("@#{argument}", value)
+          argument.is_a?(Integer) ? values[argument] : instance_variable_set("@#{argument}", value)
         end
 
         alias_method :values, :to_a
