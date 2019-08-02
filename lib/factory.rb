@@ -42,8 +42,8 @@ class Factory
           values.each(&block)
         end
 
-        define_method :each_pair do |&pair|
-          to_h.each(&pair)
+        define_method :each_pair do |&block|
+          to_h.each(&block)
         end
 
         define_method :dig do |*args|
@@ -79,7 +79,7 @@ class Factory
         end
 
         define_method :[]= do |argument, value|
-          argument.is_a?(Integer) ? values[argument] : instance_variable_set("@#{argument}", value)
+          instance_variable_set argument.is_a?(Integer) ? instance_variables[argument] : "@#{argument}", value
         end
 
         alias_method :values, :to_a
@@ -87,8 +87,6 @@ class Factory
         alias_method :==, :eql?
 
         class_eval(&block) if block_given?
-
-        private
 
         define_method :to_h do
           args.zip(values).to_h
