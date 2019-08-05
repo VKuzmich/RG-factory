@@ -80,6 +80,7 @@ class Factory
 
         define_method :[]= do |argument, value|
           variable_to_set = argument.is_a?(Integer) ? instance_variables[argument] : "@#{argument}"
+
           instance_variable_set variable_to_set, value
         end
 
