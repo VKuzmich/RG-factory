@@ -79,7 +79,8 @@ class Factory
         end
 
         define_method :[]= do |argument, value|
-          instance_variable_set argument.is_a?(Integer) ? instance_variables[argument] : "@#{argument}", value
+          variable_to_set = argument.is_a?(Integer) ? instance_variables[argument] : "@#{argument}"
+          instance_variable_set variable_to_set, value
         end
 
         alias_method :values, :to_a
