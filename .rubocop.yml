@@ -1,0 +1,38 @@
+require: rubocop
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 60
+
+Metrics/BlockLength:
+  Max: 100
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Max: 10
+
+RSpec/ExampleLength:
+  Max: 15
+
+Metrics/AbcSize:
+  Max: 70
+
+RSpec/MessageSpies:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Style/IfUnlessModifier:
+  Enabled: false
+  
